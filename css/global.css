@@ -1,5 +1,6 @@
 /* css/global.css */
 @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
+@import url(./home.css);
 
 * {
   margin: 0;
