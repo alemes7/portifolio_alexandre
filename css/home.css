@@ -25,11 +25,29 @@ body {
   padding: 0 20px;
 }
 
+/* LOGO */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  object-fit: cover;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
 }
+
+
 
 .nav-links {
   display: flex;
@@ -97,14 +115,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.bg1 {
-  background-image: url('../assets/fundo.png');
-}
-
-.bg2 {
-  background-image: url('../assets/fundo2.png');
 }
 
 .hero-section {
@@ -203,6 +213,7 @@ body {
   opacity: 0.6;
 }
 
+/* --------------------------------------------------------------------- */
 
 /* SOBRE MIM */
 .sobre-mim-section {
@@ -231,7 +242,7 @@ body {
   padding: 12px 28px;
   font-size: 1rem;
   font-weight: 500;
-  background-color: #ff4d4d;
+  background-color: #30d182;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -240,10 +251,13 @@ body {
 }
 
 .btn-download:hover {
-  background-color: #e84343;
+  background-color: #28b76e;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-/* FUNDO DECORATIVO */
+/* --------------------------------------------------------------------- */
+
+/* BACKGROUNDS DA PÁGINA */
 .background-forma {
   position: fixed;
   top: 0;
@@ -258,3 +272,12 @@ body {
   z-index: -1;
   pointer-events: none;
 }
+
+.bg1 {
+  background-image: url('../assets/fundo.png');
+}
+
+.bg2 {
+  background-image: url('../assets/fundo2.png');
+}
+
