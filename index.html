@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Portfólio</title>
 
-  <!-- Importar CSS -->
-  <link rel="stylesheet" href="css/global.css" />
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <!-- Fonte -->
@@ -14,25 +14,28 @@
 </head>
 <body>
 
+  <!-- Fundo Decorativo Parallax -->
+  <div class="background-forma"></div>
+
   <!-- HEADER -->
-  <header class="main-header" id="inicio">
+  <header class="main-header">
     <div class="container">
       <nav class="nav-bar">
         <div class="logo">Alexandre</div>
         <ul class="nav-links">
-          <li><a href="#inicio">Início</a></li>
+          <li><a href="">Início</a></li>
           <li><a href="#sobre-mim">Sobre</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#contato">Contato</a></li>
+          <li><a href="">Serviços</a></li>
+          <li><a href="#">Portfólio</a></li>
+          <li><a href="#">Contato</a></li>
         </ul>
         <a href="#contato" class="btn-contato">Vamos conversar</a>
       </nav>
     </div>
   </header>
 
-  <!-- SECTION COM BACKGROUND 1 -->
-  <section class="bg-section bg1">
+  <!-- HERO SECTION -->
+  <section id="inicio" class="bg-section bg1">
     <div class="hero-section">
       <div class="text-content" data-aos="fade-up">
         <h1>Olá, eu sou <span class="destaque">Alexandre Lemes</span></h1>
@@ -44,21 +47,35 @@
         <img src="assets/Foto ale.png" alt="Foto" class="foto-pessoal" />
       </div>
     </div>
+    <div class="scroll-indicator">
+      <span class="line"></span>
+      <div class="text">
+        <small>Scroll Down</small>
+        <br />
+        To Explore
+      </div>
+    </div>
   </section>
 
-  <!-- SECTION COM BACKGROUND 2 -->
+  <!-- SOBRE MIM -->
   <section id="sobre-mim" class="bg-section bg2">
-    <div class="sobre-mim-section">
+    <div class="container sobre-mim-section">
       <h2 data-aos="fade-right">Sobre Mim</h2>
-      <p data-aos="fade-up">Sou um desenvolvedor web apaixonado por transformar ideias em experiências incríveis. Trabalho com design, desenvolvimento e criações em 3D.</p>
+      <p data-aos="fade-up">
+        Sou um desenvolvedor web e designer apaixonado por tecnologia e criatividade. 
+        Atualmente curso Análise e Desenvolvimento de Sistemas e já atuei em projetos com design, edição de vídeos, e criações 3D usando Blender e Photoshop. 
+        Estou sempre buscando evoluir e transformar ideias em soluções visuais de impacto.
+      </p>
+      <a href="assets/CV-Alexandre.pdf" class="btn-download" download data-aos="zoom-in">Baixar CV</a>
     </div>
   </section>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <script>AOS.init();</script>
+  <script>window.onload = () => {
+    window.scrollTo(0, 0);
+  };</script>
 
 </body>
 </html>
