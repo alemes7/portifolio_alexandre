@@ -240,6 +240,7 @@ body {
 .sobre-mim-conteudo h2 {
   font-size: 2.4rem;
   margin-bottom: 16px;
+  color: #30d182;
 }
 
 .sobre-mim-desc {
@@ -271,6 +272,85 @@ body {
   color: #30d182;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === PORTIFOLIO === */
+.card-servicos{
+  margin: 0 auto;
+  padding: 2em;
+  width: 300px;
+  background: #111;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card-servicos::after, .card-servicos::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: conic-gradient(from var(--angle),transparent 70%, #30d182);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  border-radius: 10px;
+  z-index: -1;
+  padding: 3px;
+  animation: 3s spin linear infinite;
+}
+
+.card-servicos::before {
+  filter: blur(20px);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* === BACKGROUNDS === */
 .background-forma,
 .bg1,
@@ -298,4 +378,8 @@ body {
 
 .bg2 {
   background-image: url('../assets/fundo2.png');
+}
+
+.bg3 {
+  background-image: url('../assets/fundo3.png');
 }
