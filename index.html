@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Portfólio</title>
   <link rel="shortcut icon" href="assets/LOGO ALE TESTE.png" type="image/x-icon">
-  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
   <!-- Fonte -->
@@ -102,10 +102,56 @@
   <section id="Serviços" class="bg-section bg3">
     <div class="container">
       <h2 class="titulo-servicos">Serviços</h2>
-      <p class="desc-servicos">Aqui estão alguns dos serviços que ofereço:</p>
-      <div class="card-servicos" data-aos="fade-up">
-        <h2>card teste</h2>
+      <div class="cards-wrapper" data-aos="fade-up">
+        <div class="card-servicos">
+          <h2>Programação</h2>
+        </div>
+        <div class="card-servicos">
+          <h2>Design</h2>
+        </div>
+        <div class="card-servicos">
+          <h2>Edição de Vídeo</h2>
+        </div>
+        <div class="card-servicos">
+          <h2>Blender 3D</h2>
+        </div>
+        <div class="card-servicos">
+          <h2>Excel</h2>
+        </div>
       </div>
+      <section id="portfolio" class="portfolio-section">
+        <h2 class="titulo-portfolio">Portfólio</h2>
+        <div class="container">
+          <!-- Nav horizontal -->
+          <nav class="portfolio-nav">
+            <ul>
+              <li class="ativo" data-filtro="todos">Todos</li>
+              <li data-filtro="programacao">Software</li>
+              <li data-filtro="design">Design</li>
+              <li data-filtro="excel">Excel</li>
+              <li data-filtro="blender">Blender 3D</li>
+            </ul>
+          </nav>
+      
+          <!-- Galeria -->
+          <div class="portfolio-galeria">
+            <div class="portfolio-item programacao">
+              <img src="assets/portfolio/programacao1.png" alt="Projeto de Software" />
+            </div>
+            <div class="portfolio-item design">
+              <img src="assets/portfolio/design1.png" alt="Projeto de Design" />
+            </div>
+            <div class="portfolio-item excel">
+              <img src="assets/portfolio/excel1.png" alt="Planilha Excel" />
+            </div>
+            <div class="portfolio-item blender">
+              <img src="assets/portfolio/blender1.png" alt="Render 3D" />
+            </div>
+            <!-- Adicione mais conforme necessário -->
+          </div>
+        </div>
+      </section>
+      
     </div>
   </section>
   
@@ -124,6 +170,35 @@
   <script>window.onload = () => {
     window.scrollTo(0, 0);
   };</script>
+  <script>  
+    const navItems = document.querySelectorAll('.portfolio-nav li');  
+    const portfolioItems = document.querySelectorAll('.portfolio-item');  
+  
+    navItems.forEach(item => {  
+      item.addEventListener('click', () => {  
+        // Remove a classe 'ativo' de todos os itens  
+        navItems.forEach(i => i.classList.remove('ativo'));  
+        // Adiciona a classe 'ativo' ao item clicado  
+        item.classList.add('ativo');  
+
+        // Filtra os itens da galeria com base no atributo data-filtro do item clicado  
+        const filtro = item.getAttribute('data-filtro');  
+        portfolioItems.forEach(img => {  
+          if (filtro === 'todos' || img.classList.contains(filtro)) {  
+            img.style.display = 'block';  
+          } else {  
+            img.style.display = 'none';  
+          }  
+        });  
+      });  
+    });  
+  
+    // Mostrar todos por padrão ao carregar  
+    window.addEventListener('DOMContentLoaded', () => {  
+      document.querySelector('[data-filtro="todos"]').click();  
+    });  
+</script>  
+  
 
 </body>
 </html>
