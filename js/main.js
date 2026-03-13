@@ -21,7 +21,6 @@ function animateFollower() {
 }
 animateFollower();
 
-// Hide cursor when leaving window
 document.addEventListener('mouseleave', () => {
   cursor.style.opacity = '0';
   follower.style.opacity = '0';
@@ -34,11 +33,7 @@ document.addEventListener('mouseenter', () => {
 // === HEADER SCROLL ===
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
+  header.classList.toggle('scrolled', window.scrollY > 50);
 });
 
 // === MOBILE MENU ===
@@ -48,24 +43,19 @@ const mobileMenu = document.getElementById('mobileMenu');
 menuToggle.addEventListener('click', () => {
   mobileMenu.classList.toggle('open');
   const spans = menuToggle.querySelectorAll('span');
-  if (mobileMenu.classList.contains('open')) {
-    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-    spans[1].style.opacity = '0';
-    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-  } else {
-    spans[0].style.transform = '';
-    spans[1].style.opacity = '';
-    spans[2].style.transform = '';
-  }
+  const isOpen = mobileMenu.classList.contains('open');
+  spans[0].style.transform = isOpen ? 'rotate(45deg) translate(5px, 5px)' : '';
+  spans[1].style.opacity  = isOpen ? '0' : '';
+  spans[2].style.transform = isOpen ? 'rotate(-45deg) translate(5px, -5px)' : '';
 });
 
 mobileMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('open');
-    const spans = menuToggle.querySelectorAll('span');
-    spans[0].style.transform = '';
-    spans[1].style.opacity = '';
-    spans[2].style.transform = '';
+    menuToggle.querySelectorAll('span').forEach(s => {
+      s.style.transform = '';
+      s.style.opacity = '';
+    });
   });
 });
 
@@ -75,11 +65,7 @@ const portfolioItems = document.querySelectorAll('.portfolio-item');
 
 function filterPortfolio(filtro) {
   portfolioItems.forEach(item => {
-    if (filtro === 'todos' || item.classList.contains(filtro)) {
-      item.style.display = 'block';
-    } else {
-      item.style.display = 'none';
-    }
+    item.style.display = (filtro === 'todos' || item.classList.contains(filtro)) ? 'block' : 'none';
   });
 }
 
@@ -91,27 +77,60 @@ navItems.forEach(item => {
   });
 });
 
-// Default
 filterPortfolio('todos');
 
-// === SCROLL TO TOP ao carregar ===
-window.addEventListener('load', () => {
-  window.scrollTo(0, 0);
+// === MODAL PORTFÓLIO ===
+const modal = document.getElementById('portfolioModal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalTag = document.getElementById('modalTag');
+const modalDesc = document.getElementById('modalDesc');
+const modalClose = document.getElementById('modalClose');
+
+document.querySelectorAll('.ver-mais-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const item = btn.closest('.portfolio-item');
+    modalImg.src = item.getAttribute('data-img');
+    modalImg.alt = item.getAttribute('data-title');
+    modalTitle.textContent = item.getAttribute('data-title');
+    modalTag.textContent = item.getAttribute('data-tag');
+    modalDesc.textContent = item.getAttribute('data-desc');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
 });
 
-// === INTERSECTION OBSERVER para animar cards ===
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// === SCROLL REVEAL ===
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.style.opacity = '1';
       entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.servico-card, .skills-grid li, .stat').forEach(el => {
+document.querySelectorAll('.servico-card, .skill-group, .sobre-exp-card').forEach(el => {
   el.style.opacity = '0';
-  el.style.transform = 'translateY(24px)';
+  el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   observer.observe(el);
 });
+
+// === SCROLL TO TOP ===
+window.addEventListener('load', () => window.scrollTo(0, 0));

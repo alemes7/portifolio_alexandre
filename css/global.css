@@ -816,7 +816,7 @@ body:has(button:hover) .cursor {
   overflow: hidden;
   border: 1px solid var(--border-dim);
   cursor: pointer;
-  group: true;
+  /*group: true;*/
 }
 
 .portfolio-card img {
@@ -1017,4 +1017,296 @@ body:has(button:hover) .cursor {
   .sobre-stats { grid-template-columns: repeat(3, 1fr); }
   .contato-links { flex-direction: column; align-items: stretch; }
   .contato-btn { justify-content: center; }
+}
+
+/* === WHATSAPP FLUTUANTE === */
+.whatsapp-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 900;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #fff;
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+}
+
+.wpp-tooltip {
+  position: absolute;
+  right: 68px;
+  background: #1a1a2e;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+  border: 1px solid var(--border-dim);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(6px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.wpp-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: #1a1a2e;
+  border-right: none;
+}
+
+.whatsapp-float:hover .wpp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* === EXP CARD (thyssenkrupp) === */
+.sobre-exp-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--blue-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 14px;
+  transition: border-color 0.3s;
+}
+
+.sobre-exp-card:hover {
+  border-color: var(--border);
+}
+
+.exp-logo-area {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #1a3a5c, #0a1628);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.exp-logo-text {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: -1px;
+}
+
+.exp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exp-empresa {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.3px;
+}
+
+.exp-cargo {
+  font-size: 0.75rem;
+  color: var(--green);
+  font-weight: 500;
+}
+
+.exp-stack {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+/* === SKILLS SECTION === */
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-group-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tags span {
+  padding: 5px 14px;
+  background: var(--blue-card);
+  border: 1px solid var(--border-dim);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.skill-tags span:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* === SERVICO ÍCONE SVG === */
+.servico-icone {
+  width: 36px;
+  height: 36px;
+  color: var(--green);
+  margin: 4px 0;
+}
+
+.servico-icone svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* === MODAL === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 13, 26, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-box {
+  background: var(--blue-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  max-width: 760px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.35s ease;
+}
+
+.modal-overlay.open .modal-box {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border-dim);
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.modal-close:hover {
+  background: rgba(46, 232, 154, 0.15);
+  color: var(--green);
+}
+
+.modal-img-wrap {
+  width: 100%;
+  max-height: 420px;
+  overflow: hidden;
+  background: var(--blue-mid);
+}
+
+.modal-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-info {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.modal-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.modal-info p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* === PORTFOLIO LINK BUTTON === */
+.ver-mais-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-body);
 }
