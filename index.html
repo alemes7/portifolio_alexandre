@@ -3,202 +3,277 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu Portfólio</title>
+  <title>Alexandre Lemes — Portfólio</title>
   <link rel="shortcut icon" href="assets/LOGO ALE TESTE.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/global.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-
-  <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Fundo Decorativo Parallax -->
-  <div class="background-forma"></div>
+  <!-- CURSOR PERSONALIZADO -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise-overlay"></div>
 
   <!-- HEADER -->
-  <header class="main-header">
+  <header class="main-header" id="header">
     <div class="container">
       <nav class="nav-bar">
         <div class="logo-container">
-          <img src="assets/LOGO ALE TESTE.png" alt="LOGO" class="logo-img" />
-          <div class="logo">Alexandre</div>
+          <img src="assets/LOGO ALE TESTE.png" alt="Logo" class="logo-img" />
+          <span class="logo">Alexandre<span class="dot">.</span></span>
         </div>
         <ul class="nav-links">
-          <li><a href="">Início</a></li>
+          <li><a href="#inicio">Início</a></li>
           <li><a href="#sobre-mim">Sobre</a></li>
-          <li><a href="">Serviços</a></li>
-          <li><a href="#">Portfólio</a></li>
-          <li><a href="#">Contato</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
-        <a href="#contato" class="btn-contato">Vamos conversar</a>
+        <a href="#contato" class="btn-contato">Vamos conversar <span class="arrow">↗</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </nav>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section id="inicio" class="bg-section bg1">
-    <div class="hero-section">
-      <div class="text-content" data-aos="fade-up">
-        <h1>Olá, eu sou <span class="destaque">Alexandre Lemes</span></h1>
-        <h2>Desenvolvedor Web e Designer Criativo</h2>
-        <p>Crio sites, designs, edições e 3D pra transformar ideias em realidade.</p>
-        <a href="#portfolio" class="btn-cta">Ver Portfólio</a>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre-mim">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero-section">
+    <!-- Orbs de fundo -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <!-- Grid lines decorativas -->
+    <div class="grid-lines"></div>
+
+    <div class="hero-inner container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Disponível para projetos
       </div>
-      <div class="img-content" data-aos="fade-left">
-        <img src="assets/Foto ale.png" alt="Foto" class="foto-pessoal" />
+      <h1 class="hero-title">
+        <span class="line-reveal">Olá, eu sou</span>
+        <span class="line-reveal name-highlight">Alexandre<br>Lemes</span>
+      </h1>
+      <p class="hero-sub">
+        Desenvolvedor Web & Designer Criativo.<br>
+        Transformo ideias em experiências digitais impactantes.
+      </p>
+      <div class="hero-ctas">
+        <a href="#portfolio" class="btn-primary">Ver Portfólio <span>→</span></a>
+        <a href="#sobre-mim" class="btn-ghost">Sobre mim</a>
+      </div>
+      <div class="hero-tags">
+        <span>HTML/CSS</span>
+        <span>JavaScript</span>
+        <span>Photoshop</span>
+        <span>Blender 3D</span>
+        <span>CapCut</span>
       </div>
     </div>
-    <div class="scroll-indicator">
-      <span class="line"></span>
-      <div class="text">
-        <small>Role para baixo</small>
-        <br />
-        Para explorar
-      </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
     </div>
   </section>
 
   <!-- SOBRE MIM -->
-  <section id="sobre-mim" class="bg-section bg2">
-    <div class="container sobre-mim-flex">
-      <div class="sobre-mim-imagem" data-aos="fade-right">
-        <img src="assets/Foto ale.png" alt="Foto de Alexandre">
-      </div>
-      <div class="sobre-mim-conteudo" data-aos="fade-left">
-        <h2>Sobre Mim</h2>
-        <p class="sobre-mim-desc">
-          Olá! Me chamo Alexandre e sou apaixonado por tecnologia e criatividade. Estou em formação como desenvolvedor,
-          com foco em soluções web e visuais. Gosto de transformar ideias em projetos funcionais e impactantes.
-        </p>
-        <ul class="sobre-mim-lista">
-          <li>🎓 Graduando em <strong>Análise e Desenvolvimento de Sistemas</strong></li>
-          <li>💻 Experiência com <strong>HTML, CSS, JavaScript</strong></li>
-          <li>🖌️ Design criativo com <strong>Photoshop e Canva</strong></li>
-          <li>🎬 Edição de vídeos com <strong>CapCut e Premiere</strong></li>
-          <li>🧩 Renders 3D com <strong>Blender + Fortnite Porting</strong></li>
-          <li>📊 Domínio de <strong>Excel</strong> e automações simples</li>
-          <li>🚀 Sempre buscando evoluir e aprender novas tecnologias</li>
-        </ul>
-        <a href="assets/CV-Alexandre.pdf" class="btn-download" download>Baixar CV</a>
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <!-- PORTFÓLIO -->
-  <section id="Serviços" class="bg-section bg3">
-    <div class="container">
-      <h2 class="titulo-servicos">Serviços</h2>
-      <div class="cards-wrapper" data-aos="fade-up">
-        <div class="card-servicos">
-          <h2>Programação</h2>
+  <section id="sobre-mim" class="sobre-section">
+    <div class="container sobre-inner">
+      <div class="sobre-img-block">
+        <div class="sobre-img-frame">
+          <img src="assets/Foto ale.png" alt="Alexandre" />
         </div>
-        <div class="card-servicos">
-          <h2>Design</h2>
-        </div>
-        <div class="card-servicos">
-          <h2>Edição de Vídeo</h2>
-        </div>
-        <div class="card-servicos">
-          <h2>Blender 3D</h2>
-        </div>
-        <div class="card-servicos">
-          <h2>Excel</h2>
-        </div>
-      </div>
-      <section id="portfolio" class="portfolio-section">
-        <h2 class="titulo-portfolio">Portfólio</h2>
-        <div class="container">
-          <!-- Nav horizontal -->
-          <nav class="portfolio-nav">
-            <ul>
-              <li class="ativo" data-filtro="todos">Todos</li>
-              <li data-filtro="programacao">Software</li>
-              <li data-filtro="design">Design</li>
-              <li data-filtro="excel">Excel</li>
-              <li data-filtro="blender">Blender 3D</li>
-            </ul>
-          </nav>
-      
-          <!-- Galeria -->
-          <div class="portfolio-galeria">
-            <div class="portfolio-item programacao">
-              <img src="assets/portfolio/programacao1.png" alt="Projeto de Software" />
-            </div>
-            <div class="portfolio-item design">
-              <img src="assets/portfolio/design1.png" alt="Projeto de Design" />
-            </div>
-            <div class="portfolio-item excel">
-              <img src="assets/portfolio/excel1.png" alt="Planilha Excel" />
-            </div>
-            <div class="portfolio-item blender">
-              <img src="assets/portfolio/blender1.png" alt="Render 3D" />
-            </div>
-            <!-- Adicione mais conforme necessário -->
+        <div class="sobre-stats">
+          <div class="stat">
+            <span class="stat-num">+10</span>
+            <span class="stat-label">Projetos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">3+</span>
+            <span class="stat-label">Anos criando</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">Café</span>
           </div>
         </div>
-      </section>
-      
+      </div>
+
+      <div class="sobre-content">
+        <p class="section-eyebrow">// sobre mim</p>
+        <h2 class="section-title">Tecnologia<br>+ Criatividade</h2>
+        <p class="sobre-desc">
+          Me chamo Alexandre e sou apaixonado por tecnologia e criatividade. Estou em formação como desenvolvedor,
+          com foco em soluções web e visuais. Gosto de transformar ideias em projetos funcionais e impactantes.
+        </p>
+        <ul class="skills-grid">
+          <li><span class="skill-icon">🎓</span><div><strong>ADS</strong><small>Análise e Desenvolvimento de Sistemas</small></div></li>
+          <li><span class="skill-icon">💻</span><div><strong>Web Dev</strong><small>HTML, CSS, JavaScript</small></div></li>
+          <li><span class="skill-icon">🖌️</span><div><strong>Design</strong><small>Photoshop & Canva</small></div></li>
+          <li><span class="skill-icon">🎬</span><div><strong>Vídeo</strong><small>CapCut & Premiere</small></div></li>
+          <li><span class="skill-icon">🧩</span><div><strong>3D</strong><small>Blender + Fortnite Porting</small></div></li>
+          <li><span class="skill-icon">📊</span><div><strong>Excel</strong><small>Automações & Planilhas</small></div></li>
+        </ul>
+        <a href="assets/CV-Alexandre.pdf" class="btn-primary" download>Baixar CV <span>↓</span></a>
+      </div>
     </div>
   </section>
-  
 
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="servicos-section">
+    <div class="container">
+      <p class="section-eyebrow">// o que eu faço</p>
+      <h2 class="section-title">Serviços</h2>
 
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <div class="servico-num">01</div>
+          <div class="servico-icon">💻</div>
+          <h3>Programação</h3>
+          <p>Sites, sistemas e aplicações web com HTML, CSS e JavaScript. Do zero ao deploy.</p>
+          <div class="servico-line"></div>
+        </div>
+        <div class="servico-card">
+          <div class="servico-num">02</div>
+          <div class="servico-icon">🖌️</div>
+          <h3>Design Gráfico</h3>
+          <p>Criação de identidades visuais, banners, posts e materiais de alto impacto.</p>
+          <div class="servico-line"></div>
+        </div>
+        <div class="servico-card">
+          <div class="servico-num">03</div>
+          <div class="servico-icon">🎬</div>
+          <h3>Edição de Vídeo</h3>
+          <p>Edições dinâmicas e criativas para reels, shorts, trailers e conteúdo profissional.</p>
+          <div class="servico-line"></div>
+        </div>
+        <div class="servico-card">
+          <div class="servico-num">04</div>
+          <div class="servico-icon">🧩</div>
+          <h3>Blender 3D</h3>
+          <p>Modelagem, renders e animações 3D. Especialidade em Fortnite porting.</p>
+          <div class="servico-line"></div>
+        </div>
+        <div class="servico-card">
+          <div class="servico-num">05</div>
+          <div class="servico-icon">📊</div>
+          <h3>Excel & Dados</h3>
+          <p>Planilhas profissionais, dashboards e automações para otimizar processos.</p>
+          <div class="servico-line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- PORTFÓLIO -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <p class="section-eyebrow">// meu trabalho</p>
+      <h2 class="section-title">Portfólio</h2>
 
+      <nav class="portfolio-nav">
+        <ul>
+          <li class="ativo" data-filtro="todos">Todos</li>
+          <li data-filtro="programacao">Software</li>
+          <li data-filtro="design">Design</li>
+          <li data-filtro="excel">Excel</li>
+          <li data-filtro="blender">Blender 3D</li>
+        </ul>
+      </nav>
 
+      <div class="portfolio-galeria">
+        <div class="portfolio-item programacao">
+          <div class="portfolio-card">
+            <img src="assets/portfolio/programacao1.png" alt="Projeto de Software" />
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Software</span>
+              <h4>Projeto Web</h4>
+              <a href="#" class="portfolio-link">Ver mais ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item design">
+          <div class="portfolio-card">
+            <img src="assets/portfolio/design1.png" alt="Projeto de Design" />
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Design</span>
+              <h4>Design Gráfico</h4>
+              <a href="#" class="portfolio-link">Ver mais ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item excel">
+          <div class="portfolio-card">
+            <img src="assets/portfolio/excel1.png" alt="Planilha Excel" />
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Excel</span>
+              <h4>Planilha Avançada</h4>
+              <a href="#" class="portfolio-link">Ver mais ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item blender">
+          <div class="portfolio-card">
+            <img src="assets/portfolio/blender1.png" alt="Render 3D" />
+            <div class="portfolio-overlay">
+              <span class="portfolio-tag">Blender 3D</span>
+              <h4>Render 3D</h4>
+              <a href="#" class="portfolio-link">Ver mais ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- CONTATO -->
+  <section id="contato" class="contato-section">
+    <div class="container contato-inner">
+      <div class="contato-glow"></div>
+      <p class="section-eyebrow">// vamos trabalhar juntos</p>
+      <h2 class="section-title">Tem um projeto<br>em mente?</h2>
+      <p class="contato-desc">Me manda uma mensagem, respondo rápido 🚀</p>
+      <div class="contato-links">
+        <a href="mailto:seuemail@email.com" class="contato-btn">
+          <span class="contato-btn-icon">✉️</span>
+          seuemail@email.com
+        </a>
+        <a href="https://wa.me/55SEUNUMERO" class="contato-btn" target="_blank">
+          <span class="contato-btn-icon">📱</span>
+          WhatsApp
+        </a>
+        <a href="https://linkedin.com/in/seulinkedin" class="contato-btn" target="_blank">
+          <span class="contato-btn-icon">💼</span>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <span class="footer-logo">Alexandre<span class="dot">.</span></span>
+      <p>© 2025 Alexandre Lemes — Todos os direitos reservados</p>
+    </div>
+  </footer>
 
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-  <script>window.onload = () => {
-    window.scrollTo(0, 0);
-  };</script>
-  <script>  
-    const navItems = document.querySelectorAll('.portfolio-nav li');  
-    const portfolioItems = document.querySelectorAll('.portfolio-item');  
-  
-    navItems.forEach(item => {  
-      item.addEventListener('click', () => {  
-        // Remove a classe 'ativo' de todos os itens  
-        navItems.forEach(i => i.classList.remove('ativo'));  
-        // Adiciona a classe 'ativo' ao item clicado  
-        item.classList.add('ativo');  
-
-        // Filtra os itens da galeria com base no atributo data-filtro do item clicado  
-        const filtro = item.getAttribute('data-filtro');  
-        portfolioItems.forEach(img => {  
-          if (filtro === 'todos' || img.classList.contains(filtro)) {  
-            img.style.display = 'block';  
-          } else {  
-            img.style.display = 'none';  
-          }  
-        });  
-      });  
-    });  
-  
-    // Mostrar todos por padrão ao carregar  
-    window.addEventListener('DOMContentLoaded', () => {  
-      document.querySelector('[data-filtro="todos"]').click();  
-    });  
-</script>  
-  
-
+  <script src="js/main.js"></script>
 </body>
 </html>
