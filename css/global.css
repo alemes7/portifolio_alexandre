@@ -680,7 +680,7 @@ body:has(button:hover) .cursor {
 
 .servicos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(6, 1fr);
   gap: 1px;
   background: var(--border-dim);
   border-radius: 20px;
@@ -689,7 +689,7 @@ body:has(button:hover) .cursor {
 }
 
 .servico-card {
-  padding: 40px 32px;
+  padding: 32px 20px;
   background: var(--blue-card);
   display: flex;
   flex-direction: column;
@@ -816,7 +816,7 @@ body:has(button:hover) .cursor {
   overflow: hidden;
   border: 1px solid var(--border-dim);
   cursor: pointer;
-  /*group: true;*/
+  group: true;
 }
 
 .portfolio-card img {
@@ -1003,14 +1003,14 @@ body:has(button:hover) .cursor {
   }
 
   .servicos-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 600px) {
   .hero-title { font-size: 2.8rem; letter-spacing: -1px; }
   .section-title { font-size: 2rem; }
-  .servicos-grid { grid-template-columns: 1fr; }
+  .servicos-grid { grid-template-columns: repeat(2, 1fr); }
   .portfolio-nav ul { border-radius: 16px; padding: 8px; }
   .portfolio-nav li { padding: 8px 16px; }
   .footer .container { flex-direction: column; text-align: center; }
@@ -1309,4 +1309,304 @@ body:has(button:hover) .cursor {
   padding: 0;
   cursor: pointer;
   font-family: var(--font-body);
+}
+
+/* === CARDS VISUAIS (sem interação — design e excel) === */
+.portfolio-card-visual {
+  cursor: default;
+}
+
+.portfolio-card-visual:hover img {
+  transform: none;
+  filter: saturate(0.85);
+}
+
+.portfolio-overlay-static {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(6,13,26,0.85) 0%, transparent 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.portfolio-overlay-static .portfolio-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.portfolio-overlay-static h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* === CARDS DE VÍDEO === */
+.portfolio-card-video {
+  cursor: pointer;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  background: rgba(46, 232, 154, 0.15);
+  border: 2px solid rgba(46, 232, 154, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  z-index: 3;
+  transition: background 0.3s, transform 0.3s, border-color 0.3s;
+  backdrop-filter: blur(4px);
+}
+
+.play-icon svg {
+  width: 20px;
+  height: 20px;
+  margin-left: 3px;
+}
+
+.portfolio-card-video:hover .play-icon {
+  background: rgba(46, 232, 154, 0.3);
+  border-color: var(--green);
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+/* === MODAL — VÍDEO EMBED === */
+.modal-video-wrap {
+  display: none;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.modal-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* === MODAL — BOTÕES GITHUB / LIVE === */
+.modal-actions {
+  display: none;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.modal-actions.visible {
+  display: flex;
+}
+
+.modal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.modal-btn-github {
+  background: var(--blue-mid);
+  border: 1px solid var(--border-dim);
+  color: var(--text);
+}
+
+.modal-btn-github:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.modal-btn-live {
+  background: var(--green);
+  color: var(--blue-deep);
+  border: 1px solid var(--green);
+}
+
+.modal-btn-live:hover {
+  background: var(--green-dim);
+  border-color: var(--green-dim);
+}
+
+/* ═══════════════════════════════════════════
+   MODAL GALERIA DE VÍDEOS
+═══════════════════════════════════════════ */
+.modal-box-video {
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* Header da galeria */
+.video-galeria-header {
+  padding: 32px 32px 20px;
+  border-bottom: 1px solid var(--border-dim);
+}
+
+.video-galeria-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 6px 0 4px;
+}
+
+.video-galeria-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Grade de thumbnails */
+.video-galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 24px 32px 32px;
+}
+
+/* Card da galeria */
+.vg-card {
+  background: var(--blue-mid);
+  border: 1px solid var(--border-dim);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.vg-card:hover {
+  border-color: var(--green);
+  transform: translateY(-3px);
+}
+
+.vg-thumb {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: var(--blue-card);
+  overflow: hidden;
+}
+
+.vg-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.vg-card:hover .vg-thumb img {
+  transform: scale(1.05);
+}
+
+.vg-play-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6,13,26,0.4);
+}
+
+.vg-play-icon svg {
+  width: 36px;
+  height: 36px;
+  color: var(--green);
+  opacity: 0.8;
+}
+
+.vg-card:hover .vg-play-icon svg {
+  opacity: 1;
+}
+
+.vg-info {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vg-titulo {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.vg-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Botão voltar */
+.video-voltar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 20px 24px 0;
+  background: none;
+  border: 1px solid var(--border-dim);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.video-voltar-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* Player de vídeo */
+.video-player-wrap {
+  margin: 16px 0 0;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+
+.video-player-wrap video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.video-player-info {
+  padding: 20px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.video-player-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.video-player-info p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
