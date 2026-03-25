@@ -3,17 +3,15 @@
 // Coloque os arquivos em: assets/videos/
 // ═══════════════════════════════════════════
 const videosGaleria = [
-  {
-    titulo: "Edit 01 — CapCut",
-    desc: "Edição criativa com cortes dinâmicos e trilha sincronizada.",
-    arquivo: "assets/videos/video1.mp4",
-    thumb: "assets/videos/thumb1.jpg"   // opcional — se não tiver, mostra ícone de play
-  },
-  {
-    titulo: "Edit 02 — CapCut",
-    desc: "Montagem rápida com efeitos de transição e motion.",
-    arquivo: "assets/videos/video2.mp4",
-    thumb: "assets/videos/thumb2.jpg"
+    {
+    titulo: "Chamada UFC — Edit Cinemática (Fake)",
+    desc: `Uma edição cinematográfica que simula um dos confrontos mais aguardados da história do MMA: Conor McGregor vs Charles “do Bronxs” Oliveira.
+
+    Inspirado no estilo de chamadas televisivas — como grandes produções da Globo — o vídeo recria toda a atmosfera de um evento real, com narração impactante, tensão e expectativa de um combate que nunca saiu do papel.
+
+    Mesmo sendo uma produção fictícia, a proposta é explorar o “e se?”, trazendo à vida um duelo que fãs do mundo inteiro sempre imaginaram.`,
+    arquivo: "assets/videos/ufc.mp4",
+    thumb: "assets/videos/thumb_ufc.png"
   },
   // Para adicionar mais: copie o bloco acima e troque os dados
 ];
